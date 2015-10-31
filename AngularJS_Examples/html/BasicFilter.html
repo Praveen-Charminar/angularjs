@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="filtermodule">
+<head>
+    <title>AgnularJS Demo</title>
+    <script type="text/javascript" src="./Scripts/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="./Scripts/app/basicfilter.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<!--<body ng-controller="FilterController as VZEmployees">
+    <h1>Company: {{"Verizon" + " India"}}</h1>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="emp in VZEmployees.employees">
+            <h3>
+                {{emp.name}}
+                <em class="pull-right">{{emp.salary}}</em>
+            </h3>
+            <h5>DOJ: {{emp.DOJ}}</h5>
+        </li>
+    </ul>
+</body>-->
+
+<body ng-controller="FilterController as VZEmployees">
+    <h1>Company: {{"Verizon" + " India"}}</h1>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="emp in VZEmployees.employees |limitTo:3">
+            <h3>
+                {{emp.name | uppercase}}
+                <em class="pull-right">{{emp.salary | currency}}</em>
+            </h3>
+            <h5>DOJ: {{emp.DOJ |date: 'MM/dd/yyyy'}}</h5>
+        </li>
+    </ul>
+</body>
+</html>

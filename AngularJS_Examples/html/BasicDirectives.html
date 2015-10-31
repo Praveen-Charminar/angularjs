@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="directivemodule">
+<head>
+    <title>AgnularJS Demo</title>
+    <script type="text/javascript" src="./Scripts/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="./Scripts/app/BuiltInDirectives.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<!--<body ng-controller="DirectiveController as emp">
+    <h1>Company: {{"Verizon" + " India"}}</h1>
+    <div ng-show="emp.employees[0].status">
+        <h2>{{emp.employees[0].name}}</h2>
+        <h2>{{emp.employees[0].Location}}</h2>
+        <h4>{{emp.employees[0].Phone}}</h4>
+        <button ng-show="emp.employee.isAwarded">Redeem Award</button>
+    </div>
+    <hr />
+    <div ng-show="emp.employees[1].status">
+        <h2>{{emp.employees[1].name}}</h2>
+        <h2>{{emp.employees[1].Location}}</h2>
+        <h4>{{emp.employees[1].Phone}}</h4>
+        <button ng-show="emp.employee.isAwarded">Redeem Award</button>
+    </div>
+    <hr />
+    <div ng-show="emp.employees[2].status">
+        <h2>{{emp.employees[2].name}}</h2>
+        <h2>{{emp.employees[2].Location}}</h2>
+        <h4>{{emp.employees[2].Phone}}</h4>
+        <button ng-show="emp.employee.isAwarded">Redeem Award</button>
+    </div>
+</body>-->
+
+<body ng-controller="DirectiveController as VZEmployees">
+    <h1>Company: {{"Verizon" + " India"}}</h1>
+    <div ng-repeat="emp in VZEmployees.employees" ng-show="emp.status">
+        <h2>{{emp.name}}</h2>
+        <h2>{{emp.Location}}</h2>
+        <h4>{{emp.Phone}}</h4>
+        <button ng-show="emp.isAwarded">Redeem Award</button>
+        <hr />
+    </div>
+</body>
+</html>

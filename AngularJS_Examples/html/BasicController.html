@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="controllermodule">
+<head>
+    <title>AgnularJS Demo</title>
+    <script type="text/javascript" src="./Scripts/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="./Scripts/app/basiccontroller.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>My Name is {{"John" + " Peter"}}</h1>
+    <h3> i am {{15+10}} yrs old</h3>
+    <div ng-controller="BasicController as emp">
+        <h1>{{emp.employee.name}}</h1>
+        <h2>{{emp.employee.Location}}</h2>
+        <h3>{{emp.employee.Phone}}</h3>
+    </div>
+</body>
+</html>

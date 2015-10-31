@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="formmodule">
+<head>
+    <title>AgnularJS Demo</title>
+    <script type="text/javascript" src="./Scripts/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="./Scripts/app/basicform.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-controller="FilterController as VZEmployees">
+    <h1>{{"Verizon" + " India"}}</h1>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="emp in VZEmployees.employees |limitTo:3">
+            <h3>
+                {{emp.name | uppercase}}
+                <em class="pull-right">{{emp.salary | currency}}</em>
+            </h3>
+            <img ng-src="{{emp.image}}" />
+            <section ng-controller="PanelController as pan">
+                <ul class="nav nav-pills">
+                    <li ng-class="{active:pan.isSelectedTab(1)}"><a href ng-click="pan.SelectedTab(1)">Profile</a></li>
+                    <li ng-class="{active:pan.isSelectedTab(2)}"><a href ng-click="pan.SelectedTab(2)">Skills</a></li>
+                    <li ng-class="{active:pan.isSelectedTab(3)}"><a href ng-click="pan.SelectedTab(3)">Comments</a></li>
+                </ul>
+                <div class="panel" ng-show="pan.isSelectedTab(1)">
+                    <h4>Profile</h4>
+                    <p>{{emp.profile}}</p>
+                </div>
+                <div class="panel" ng-show="pan.isSelectedTab(2)">
+                    <h4>Skills</h4>
+                    <blockquote>{{emp.skills}}</blockquote>
+                </div>
+                <div class="panel" ng-show="pan.isSelectedTab(3)">
+                    <h4>Comments</h4>
+                    <blockquote ng-repeat="comment in emp.comments">
+                        <b>Rating:{{comment.rating}}</b>
+                        {{comment.body}}
+                        <cite>by: {{comment.author}}</cite>
+                    </blockquote>
+                    <form name="reviewForm" ng-controller="CommentController as commentCtrl" ng-submit="commentCtrl.addComment(emp)">
+                        <blockquote>
+                            <b>Rating: {{commentCtrl.comment.rating}}</b>
+                            {{commentCtrl.comment.body}}
+                            <cite>by: {{commentCtrl.comment.author}}</cite>
+                        </blockquote>
+                        <select ng-model="commentCtrl.comment.rating">
+                            <option value="1">1st Rating</option>
+                            <option value="2">2nd Rating</option>
+                            <option value="3">3rd Rating</option>
+                            <option value="4">4th Rating</option>
+                            <option value="5">5th Rating</option>
+                        </select>
+                        <textarea ng-model="commentCtrl.comment.body"></textarea>
+                        <label>by:</label>
+                        <input type="email" ng-model="commentCtrl.comment.author" />
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
+            </section>
+        </li>
+    </ul>
+</body>
+</html>
