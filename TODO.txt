@@ -1,0 +1,8 @@
+Build a SPA (single page application) form with 3 steps (line wizard)
+Each step should have at least 5 input controls
+Use radio button, check boxes, list and text area.
+Have validation for all controls
+Only if all the control validations are success move to next step
+Store the details of each steps in JSON object using controller
+Have FINSIH button in step 3
+Upon clicking FINISH, display all the details entered in 3 steps.
